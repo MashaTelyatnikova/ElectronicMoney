@@ -4,22 +4,35 @@ import java.math.BigInteger;
 
 public class Envelope {
     private Cheque cheque;
-    private final long k;
 
     public Envelope(Cheque cheque){
         this.cheque = cheque;
-        this.k = System.currentTimeMillis();
     }
 
-    public void signCheque(BankSignature bank){
+    public void setSignatureFrom(Bank bank){
+        BigInteger k = null;
+        while (true){
+            long tmp = System.currentTimeMillis();
+            if (gcd(tmp, bank.getN()) == 1){
+                k = BigInteger.valueOf(tmp);
+                break;
+            }
+        }
         BigInteger m = new BigInteger(cheque.getContent());
-        BigInteger k1 = BigInteger.valueOf(k);
-        BigInteger d = BigInteger.valueOf(bank.getPublicKey());
-        BigInteger p = BigInteger.valueOf(bank.getP());
+        BigInteger e = BigInteger.valueOf(bank.getE());
+        BigInteger n = BigInteger.valueOf(bank.getN());
 
-        BigInteger res = m.multiply(k1).modPow(d, p);
-        BigInteger k2 = k1.modPow(d, p);
-        BigInteger signature = res.divide(k2);
-        cheque.setSignature(signature);
+        BigInteger kExpE = k.modPow(e, n);
+        BigInteger signedK = (BigInteger.valueOf(bank.sign(kExpE.longValue()))).modInverse(n);
+
+        BigInteger content = (m.multiply(kExpE)).mod(n);
+        long result = bank.sign(content.longValue());
+        BigInteger signature = (BigInteger.valueOf(result).multiply(signedK)).mod(n);
+
+        cheque.setSignature(signature.longValue());
+    }
+
+    private static long gcd (long a, long b){
+        return b == 0 ? a : gcd(b, a % b);
     }
 }

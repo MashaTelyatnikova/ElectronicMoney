@@ -1,6 +1,5 @@
 package ru.kontur.crypto.money;
 
-import java.math.BigInteger;
 import java.security.MessageDigest;
 
 public class Cheque {
@@ -8,10 +7,7 @@ public class Cheque {
     private int sum;
     private Identification[] identifications;
     private byte[] content;
-    private BigInteger signature;
-
-    public Cheque() {
-    }
+    private long signature;
 
     public Cheque(String id, int sum) {
         String m1 = id + sum;
@@ -63,11 +59,11 @@ public class Cheque {
         return content;
     }
 
-    public BigInteger getSignature() {
+    public long getSignature() {
         return signature;
     }
 
-    public void setSignature(BigInteger signature) {
+    public void setSignature(long signature) {
         this.signature = signature;
     }
 }
