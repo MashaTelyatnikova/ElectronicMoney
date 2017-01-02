@@ -1,0 +1,690 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.IoC</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.IoC.BaseClasses.BootstrapperBase`1">
+            <summary>
+            Bootstrapper base class
+            </summary>
+            <typeparam name="Container">The actual IoC object</typeparam>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.#ctor(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="assemblies">The assemblies.</param>
+            <param name="types">The types.</param>
+        </member>
+        <member name="P:Utilities.IoC.BaseClasses.BootstrapperBase`1.Name">
+            <summary>
+            Name of the bootstrapper
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.BaseClasses.BootstrapperBase`1.AppContainer">
+            <summary>
+            The IoC container
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.BaseClasses.BootstrapperBase`1.Types">
+            <summary>
+            Gets the types.
+            </summary>
+            <value>The types.</value>
+        </member>
+        <member name="P:Utilities.IoC.BaseClasses.BootstrapperBase`1.Assemblies">
+            <summary>
+            Gets the assemblies.
+            </summary>
+            <value>The assemblies.</value>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.AddAssembly(System.Reflection.Assembly[])">
+            <summary>
+            Adds the assembly.
+            </summary>
+            <param name="Assemblies">The assemblies.</param>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.Dispose">
+            <summary>
+            Disposes of the object
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.Register``1(``0,System.String)">
+            <summary>
+            Registers an object with the bootstrapper
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="Object">Object to register</param>
+            <param name="Name">Name associated with the object</param>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.Register``1(System.String)">
+            <summary>
+            Registers a type with the default constructor
+            </summary>
+            <typeparam name="T">Object type to register</typeparam>
+            <param name="Name">Name associated with the object</param>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.Register``2(System.String)">
+            <summary>
+            Registers a type with the default constructor of a child class
+            </summary>
+            <typeparam name="T1">Base class/interface type</typeparam>
+            <typeparam name="T2">Child class type</typeparam>
+            <param name="Name">Name associated with the object</param>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.Register``1(System.Func{``0},System.String)">
+            <summary>
+            Registers a type with a function
+            </summary>
+            <typeparam name="T">Type that the function returns</typeparam>
+            <param name="Name">Name associated with the object</param>
+            <param name="Function">Function to register with the type</param>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.RegisterAll``1">
+            <summary>
+            Registers all objects of a certain type with the bootstrapper
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.Resolve``1(``0)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <typeparam name="T">Type to resolve</typeparam>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>An object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.Resolve``1(System.String,``0)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <typeparam name="T">Type to resolve</typeparam>
+            <param name="Name">Name associated with the object</param>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>An object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.Resolve(System.Type,System.Object)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>An object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.Resolve(System.Type,System.String,System.Object)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="Name">Name associated with the object</param>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>An object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.ResolveAll``1">
+            <summary>
+            Resolves the objects based on the type specified
+            </summary>
+            <typeparam name="T">Type to resolve</typeparam>
+            <returns>A list of objects of the specified type</returns>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.ResolveAll(System.Type)">
+            <summary>
+            Resolves all objects based on the type specified
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <returns>A list of objects of the specified type</returns>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.Dispose(System.Boolean)">
+            <summary>
+            Disposes of the object
+            </summary>
+            <param name="Managed">
+            Determines if all objects should be disposed or just managed objects
+            </param>
+        </member>
+        <member name="M:Utilities.IoC.BaseClasses.BootstrapperBase`1.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="T:Utilities.IoC.Default.DefaultBootstrapper">
+            <summary>
+            Default bootstrapper if one isn't found
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.#ctor(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="assemblies">The assemblies.</param>
+            <param name="types">The types.</param>
+        </member>
+        <member name="P:Utilities.IoC.Default.DefaultBootstrapper.Name">
+            <summary>
+            Name of the bootstrapper
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.Default.DefaultBootstrapper.AppContainer">
+            <summary>
+            App container
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.Default.DefaultBootstrapper.GenericRegisterMethod">
+            <summary>
+            Gets or sets the generic register method.
+            </summary>
+            <value>The generic register method.</value>
+        </member>
+        <member name="P:Utilities.IoC.Default.DefaultBootstrapper.GenericResolveAllMethod">
+            <summary>
+            Gets or sets the generic resolve all method.
+            </summary>
+            <value>The generic resolve all method.</value>
+        </member>
+        <member name="P:Utilities.IoC.Default.DefaultBootstrapper.GenericResolveMethod">
+            <summary>
+            Gets or sets the generic resolve method.
+            </summary>
+            <value>The generic resolve method.</value>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.Register``1(``0,System.String)">
+            <summary>
+            Registers an object
+            </summary>
+            <typeparam name="T">Type to register</typeparam>
+            <param name="Object">Object to return</param>
+            <param name="Name">Name to associate with it</param>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.Register``1(System.String)">
+            <summary>
+            Registers an object
+            </summary>
+            <typeparam name="T">Type to register</typeparam>
+            <param name="Name">Name to associate with it</param>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.Register``2(System.String)">
+            <summary>
+            Registers two types together
+            </summary>
+            <typeparam name="T1">Interface/base class</typeparam>
+            <typeparam name="T2">Implementation</typeparam>
+            <param name="Name">Name to associate with it</param>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.Register``1(System.Func{``0},System.String)">
+            <summary>
+            Registers a function with a type
+            </summary>
+            <typeparam name="T">Type to register</typeparam>
+            <param name="Function">Function used to create the type</param>
+            <param name="Name">Name to associate with the function</param>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.RegisterAll``1">
+            <summary>
+            Registers all objects of a certain type with the bootstrapper
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.Resolve``1(``0)">
+            <summary>
+            Resolves an object based on the type specified
+            </summary>
+            <typeparam name="T">Type of object to return</typeparam>
+            <param name="DefaultObject">Default value if type is not registered or error occurs</param>
+            <returns>Object of the type specified</returns>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.Resolve``1(System.String,``0)">
+            <summary>
+            Resolves an object based on the type specified
+            </summary>
+            <typeparam name="T">Type of object to return</typeparam>
+            <param name="DefaultObject">Default value if type is not registered or error occurs</param>
+            <param name="Name">Name of the object to return</param>
+            <returns>Object of the type specified</returns>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.Resolve(System.Type,System.Object)">
+            <summary>
+            Resolves an object based on the type specified
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="DefaultObject">Default value if type is not registered or error occurs</param>
+            <returns>Object of the type specified</returns>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.Resolve(System.Type,System.String,System.Object)">
+            <summary>
+            Resolves an object based on the type specified
+            </summary>
+            <param name="Name">Name of the object to return</param>
+            <param name="ObjectType">Object type</param>
+            <param name="DefaultObject">Default value if type is not registered or error occurs</param>
+            <returns>Object of the type specified</returns>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.ResolveAll``1">
+            <summary>
+            Resolves all objects of the type specified
+            </summary>
+            <typeparam name="T">Type of objects to return</typeparam>
+            <returns>An IEnumerable containing all objects of the type specified</returns>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.ResolveAll(System.Type)">
+            <summary>
+            Resolves all objects of the type specified
+            </summary>
+            <param name="ObjectType">Object type to return</param>
+            <returns>An IEnumerable containing all objects of the type specified</returns>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.ToString">
+            <summary>
+            Converts the bootstrapper to a string
+            </summary>
+            <returns>String version of the bootstrapper</returns>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.Dispose(System.Boolean)">
+            <summary>
+            Disposes of the object
+            </summary>
+            <param name="Managed">Not used</param>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.FindConstructor(System.Type)">
+            <summary>
+            Finds the constructor.
+            </summary>
+            <param name="Type">The type.</param>
+            <returns>The constructor that should be used</returns>
+        </member>
+        <member name="M:Utilities.IoC.Default.DefaultBootstrapper.GetParameters(System.Reflection.ConstructorInfo)">
+            <summary>
+            Gets the parameters.
+            </summary>
+            <param name="Constructor">The constructor.</param>
+            <returns>The parameters</returns>
+        </member>
+        <member name="T:Utilities.IoC.Default.Interfaces.ITypeBuilder">
+            <summary>
+            Type builder interface
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.Default.Interfaces.ITypeBuilder.ReturnType">
+            <summary>
+            Return type of the builder
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Default.Interfaces.ITypeBuilder.Create">
+            <summary>
+            Creates the object
+            </summary>
+            <returns>The object</returns>
+        </member>
+        <member name="T:Utilities.IoC.Default.TypeBuilder`1">
+            <summary>
+            Type builder
+            </summary>
+            <typeparam name="T">Type this builder creates</typeparam>
+        </member>
+        <member name="M:Utilities.IoC.Default.TypeBuilder`1.#ctor(System.Func{`0})">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.Default.TypeBuilder`1.ReturnType">
+            <summary>
+            Return type of the implementation
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.Default.TypeBuilder`1.Implementation">
+            <summary>
+            Implementation used to create the type
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Default.TypeBuilder`1.Create">
+            <summary>
+            Creates the object
+            </summary>
+            <returns>The created object</returns>
+        </member>
+        <member name="M:Utilities.IoC.Default.TypeBuilder`1.ToString">
+            <summary>
+            Outputs the string version of whatever object the builder holds
+            </summary>
+            <returns>The string version of the object this holds</returns>
+        </member>
+        <member name="T:Utilities.IoC.Interfaces.IBootstrapper">
+            <summary>
+            Bootstrapper interface
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.Interfaces.IBootstrapper.Name">
+            <summary>
+            Name of the bootstrapper
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.AddAssembly(System.Reflection.Assembly[])">
+            <summary>
+            Adds the assembly.
+            </summary>
+            <param name="Assemblies">The assemblies.</param>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.Register``1(``0,System.String)">
+            <summary>
+            Registers an object with the bootstrapper
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="Object">Object to register</param>
+            <param name="Name">Name associated with the object</param>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.Register``1(System.String)">
+            <summary>
+            Registers a type with the default constructor
+            </summary>
+            <typeparam name="T">Object type to register</typeparam>
+            <param name="Name">Name associated with the object</param>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.Register``2(System.String)">
+            <summary>
+            Registers a type with the default constructor of a child class
+            </summary>
+            <typeparam name="T1">Base class/interface type</typeparam>
+            <typeparam name="T2">Child class type</typeparam>
+            <param name="Name">Name associated with the object</param>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.Register``1(System.Func{``0},System.String)">
+            <summary>
+            Registers a type with a function
+            </summary>
+            <typeparam name="T">Type that the function returns</typeparam>
+            <param name="Function">Function to register with the type</param>
+            <param name="Name">Name associated with the object</param>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.RegisterAll``1">
+            <summary>
+            Registers all objects of a certain type with the bootstrapper
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.Resolve``1(``0)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <typeparam name="T">Type to resolve</typeparam>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>An object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.Resolve``1(System.String,``0)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <typeparam name="T">Type to resolve</typeparam>
+            <param name="Name">Name associated with the object</param>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>An object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.Resolve(System.Type,System.Object)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>An object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.Resolve(System.Type,System.String,System.Object)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="Name">Name associated with the object</param>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>An object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.ResolveAll``1">
+            <summary>
+            Resolves the objects based on the type specified
+            </summary>
+            <typeparam name="T">Type to resolve</typeparam>
+            <returns>A list of objects of the specified type</returns>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IBootstrapper.ResolveAll(System.Type)">
+            <summary>
+            Resolves all objects based on the type specified
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <returns>A list of objects of the specified type</returns>
+        </member>
+        <member name="T:Utilities.IoC.Interfaces.IModule">
+            <summary>
+            IoC module base class
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.Interfaces.IModule.Order">
+            <summary>
+            Order to run this in
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.IModule.Load(Utilities.IoC.Interfaces.IBootstrapper)">
+            <summary>
+            Loads the module using the bootstrapper
+            </summary>
+            <param name="Bootstrapper">Bootstrapper used to register various objects</param>
+        </member>
+        <member name="T:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract">
+            <summary>
+            IBootstrapper contract class
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.Name">
+            <summary>
+            Name of the bootstrapper
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.AddAssembly(System.Reflection.Assembly[])">
+            <summary>
+            Adds the assembly.
+            </summary>
+            <param name="Assemblies">The assemblies.</param>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.Register``1(``0,System.String)">
+            <summary>
+            Registers an object with the bootstrapper
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="Object">Object to register</param>
+            <param name="Name">Name associated with the object</param>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.Register``1(System.String)">
+            <summary>
+            Registers a type with the default constructor
+            </summary>
+            <typeparam name="T">Object type to register</typeparam>
+            <param name="Name">Name associated with the object</param>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.Register``2(System.String)">
+            <summary>
+            Registers a type with the default constructor of a child class
+            </summary>
+            <typeparam name="T1">Base class/interface type</typeparam>
+            <typeparam name="T2">Child class type</typeparam>
+            <param name="Name">Name associated with the object</param>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.Register``1(System.Func{``0},System.String)">
+            <summary>
+            Registers a type with a function
+            </summary>
+            <typeparam name="T">Type that the function returns</typeparam>
+            <param name="Function">Function to register with the type</param>
+            <param name="Name">Name associated with the object</param>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.RegisterAll``1">
+            <summary>
+            Registers all objects of a certain type with the bootstrapper
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.Resolve``1(``0)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <typeparam name="T">Type to resolve</typeparam>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>
+            An object of the specified type
+            </returns>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.Resolve``1(System.String,``0)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <typeparam name="T">Type to resolve</typeparam>
+            <param name="Name">Name associated with the object</param>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>
+            An object of the specified type
+            </returns>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.Resolve(System.Type,System.Object)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>
+            An object of the specified type
+            </returns>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.Resolve(System.Type,System.String,System.Object)">
+            <summary>
+            Resolves the object based on the type specified
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="Name">Name associated with the object</param>
+            <param name="DefaultObject">Default object to return if the type can not be resolved</param>
+            <returns>
+            An object of the specified type
+            </returns>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.ResolveAll``1">
+            <summary>
+            Resolves the objects based on the type specified
+            </summary>
+            <typeparam name="T">Type to resolve</typeparam>
+            <returns>
+            A list of objects of the specified type
+            </returns>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IBootstrapperContract.ResolveAll(System.Type)">
+            <summary>
+            Resolves all objects based on the type specified
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <returns>
+            A list of objects of the specified type
+            </returns>
+        </member>
+        <member name="T:Utilities.IoC.Interfaces.Contracts.IModuleContract">
+            <summary>
+            IModule contract class
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.Interfaces.Contracts.IModuleContract.Order">
+            <summary>
+            Order to run this in
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Interfaces.Contracts.IModuleContract.Load(Utilities.IoC.Interfaces.IBootstrapper)">
+            <summary>
+            Loads the module using the bootstrapper
+            </summary>
+            <param name="Bootstrapper">Bootstrapper used to register various objects</param>
+        </member>
+        <member name="T:Utilities.IoC.Manager">
+            <summary>
+            IoC manager class
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Manager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.Manager.Bootstrapper">
+            <summary>
+            Gets the instance of the manager
+            </summary>
+        </member>
+        <member name="P:Utilities.IoC.Manager.InternalBootstrapper">
+            <summary>
+            Bootstrapper object
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Manager.Dispose">
+            <summary>
+            Disposes of the object
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Manager.ToString">
+            <summary>
+            Displays information about the IoC container in string form
+            </summary>
+            <returns>Information about the IoC container</returns>
+        </member>
+        <member name="M:Utilities.IoC.Manager.Dispose(System.Boolean)">
+            <summary>
+            Disposes of the object
+            </summary>
+            <param name="Managed">
+            Determines if all objects should be disposed or just managed objects
+            </param>
+        </member>
+        <member name="M:Utilities.IoC.Manager.GetTypes(System.Collections.Concurrent.ConcurrentBag{System.Reflection.Assembly}@)">
+            <summary>
+            Gets the types available
+            </summary>
+            <param name="LoadedAssemblies">The loaded assemblies.</param>
+            <returns>The list of</returns>
+        </member>
+        <member name="M:Utilities.IoC.Manager.LoadAssemblies">
+            <summary>
+            Loads the assemblies.
+            </summary>
+            <returns>The list of assemblies that the system has loaded</returns>
+        </member>
+        <member name="M:Utilities.IoC.Manager.LoadAssemblies(System.Collections.Generic.List{System.Reflection.Assembly},System.Reflection.AssemblyName[])">
+            <summary>
+            Loads the assemblies.
+            </summary>
+            <param name="Assemblies">The assemblies.</param>
+            <param name="assemblyName">Name of the assembly.</param>
+        </member>
+        <member name="M:Utilities.IoC.Manager.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="T:Utilities.IoC.Manager.AssemblyComparer">
+            <summary>
+            Assembly comparer
+            </summary>
+        </member>
+        <member name="M:Utilities.IoC.Manager.AssemblyComparer.Equals(System.Reflection.Assembly,System.Reflection.Assembly)">
+            <summary>
+            Determines whether the specified objects are equal.
+            </summary>
+            <param name="x">The first object of type System.Reflection.Assembly to compare.</param>
+            <param name="y">The second object of type System.Reflection.Assembly to compare.</param>
+            <returns>true if the specified objects are equal; otherwise, false.</returns>
+        </member>
+        <member name="M:Utilities.IoC.Manager.AssemblyComparer.GetHashCode(System.Reflection.Assembly)">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data
+            structures like a hash table.
+            </returns>
+        </member>
+    </members>
+</doc>
